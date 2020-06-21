@@ -9,6 +9,7 @@ const TodoList = ({ todos, deleteTodo, updateTodo }) => {
     }
 
     const updateTodoInit = ( todoIndex ) => {
+        console.log( todoIndex );
         updateTodo( todoIndex );
     }
 
