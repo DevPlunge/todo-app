@@ -1,0 +1,203 @@
+/* ---- variables ---- */
+/* colors */
+$white: #fff;
+$black: #333;
+$blue: darkcyan;
+$red: rgb(233, 57, 57);
+
+/* fonts */
+$base-f-family: 'Open Sans', sans-serif;
+$base-f-size: 18px;
+$base-l-height: 1.6;
+$base-f-style: normal;
+
+/* headings */
+$h1-fs: ($base-f-size * 2)px;
+$h2-fs: ($h1-fs - 2)px; 
+$h3-fs: ($h2-fs - 2)px;
+$h4-fs: ($h3-fs - 2)px;
+$h5-fs: ($h4-fs - 2)px;
+$h6-fs: ($h5-fs - 2)px;
+
+
+/*  ----  helpers  ----  */
+%button {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  background: $blue;
+  color: $white;
+  padding: 8px 10px;
+  text-transform: uppercase;
+  border: 2px solid $blue;
+  outline: none;
+  cursor: pointer;
+  transition: all .2s;
+
+  &:hover {
+    background: $white;
+    color: $blue;
+  }
+
+}
+
+%danger-button {
+  @extend %button;
+  background-color: $red;
+  border-color: $red;
+
+  &:hover {
+    color: $red;
+  }
+
+}
+
+
+/* ---  Buttons  --- */
+.btn {
+  @extend %button;
+}
+.btn-danger {
+  @extend %danger-button;
+}
+
+/* Reset */
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: $white;
+  color: $black;
+  font-size: $base-f-size;
+  font-family: $base-f-family;
+  line-height: $base-l-height;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $base-f-family;
+  color: $black;
+}
+
+h1 {
+  font-size: $h1-fs;
+}
+
+h2 {
+  font-size: $h2-fs;
+}
+
+h3 {
+  font-size: $h3-fs;
+}
+
+h4 {
+  font-size: $h4-fs;
+}
+
+h5 {
+  font-size: $h5-fs;
+}
+
+h6 {
+  font-size: $h6-fs;
+}
+
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.todo-container {
+  max-width: 800px;
+  margin: 50px auto 0;
+
+  &__form {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .1);
+    padding: 30px;
+  }
+
+  &__field {
+    padding: 8px 0;
+    margin-bottom: 20px;
+    color: $black;
+    font-size: 20px;
+    border-width: 0 0 2px 0;
+    outline: none;  
+    border-bottom-color: transparent;
+    width: 100%;
+    transition: all .2s;
+
+    &:focus {
+      border-bottom-color: $blue;
+    }
+
+  }
+
+  &__todo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .2);
+    margin-top: 10px;
+    animation: todoTransition .3s ease-out;
+    transition: all .3s;
+
+    &-text {
+      width: 74%;
+    }
+
+  }
+
+  &__actions {
+    width: 23%;
+
+    & .btn {
+      display: inline-block;
+      width: auto;
+  
+      &:first-child {
+        margin-right: 10px;
+      }
+  
+    }
+
+  }
+
+  .todo-container__no-list {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+}
+
+/* ---  animations  --- */
+@keyframes todoTransition {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  } to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
